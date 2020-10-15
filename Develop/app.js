@@ -29,6 +29,11 @@ inquirer.prompt([
     }, 
     {
         type: 'input',
+        name: 'id',
+        message: `what is the manager's id`
+    },
+    {
+        type: 'input',
         name: 'mEmail',
         message: `what is the manager's email`
     },
@@ -40,6 +45,7 @@ inquirer.prompt([
 ]) .then(function (managerA){
     const manager = new Manager(
         managerA.mName,
+        managerA.id,
         managerA.mEmail,
         managerA.officeNumber,
         "Manager"
@@ -99,10 +105,10 @@ function engineerPrompts() {
     }
     ]) .then(function (engineerA){
     const engineer = new Engineer(
-        engineerA.github,
         engineerA.name,
         engineerA.id,
         engineerA.email,
+        engineerA.github,
         "Engineer"
     );
         team.push(engineer);
@@ -137,10 +143,10 @@ function internPrompts() {
 ])
 .then(function (internA){
     const intern = new Intern(
-        internA.school,
         internA.name,
         internA.id,
-       internA.email,
+        internA.email,
+        internA.school,
         "Intern"
     );
         team.push(intern);
